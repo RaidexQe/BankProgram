@@ -24,7 +24,16 @@ def withdraw(balance):
         return 0
     else:
         return amount
+
+def loan(balance):
+    amount = float(input("Enter the amount for loan"))
     
+    if amount < 0:
+        print("Thats not the valid amounr")
+    elif amount >= 1000000:
+        print("You exceded the loan amount")
+    else:
+        return amount
 
 def main():
     try:
@@ -42,6 +51,7 @@ def main():
         print("2. Deposit")
         print("3. Withdraw")
         print("4. Exit")
+        print("5. Loan")
         print("*" * 100)
         
         choice = input("Enter your choice from (1-4): ")
@@ -53,6 +63,8 @@ def main():
             balance -= withdraw(balance)
         elif choice == '4':
             is_running = False
+        elif choice == "5":
+            balance += loan(balance)
         else:
             print("Invalid choice")
             
